@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import NavigationBar from '../components/NavigationBar';
 import './CartPage.css';
 
@@ -30,6 +31,8 @@ const products = [
 ];
 
 function CartPage({ cartItems, updateCartQuantity, removeFromCart, cartCount }) {
+  const [showPopup, setShowPopup] = useState(false);
+
   const calculateTotal = () => {
     return Object.entries(cartItems).reduce((total, [productId, quantity]) => {
       const product = products.find(p => p.id === parseInt(productId));
@@ -45,6 +48,9 @@ function CartPage({ cartItems, updateCartQuantity, removeFromCart, cartCount }) 
         {Object.keys(cartItems).length === 0 ? (
           <div className="empty-cart">
             <p>Your cart is empty</p>
+            <Link to="/products" className="continue-shopping">
+              Continue Shopping
+            </Link>
           </div>
         ) : (
           <>
@@ -94,13 +100,28 @@ function CartPage({ cartItems, updateCartQuantity, removeFromCart, cartCount }) 
                 <span>Total:</span>
                 <span>${calculateTotal().toFixed(2)}</span>
               </div>
-              <button className="checkout-btn">
+              <button 
+                className="checkout-btn"
+                onClick={() => setShowPopup(true)}
+              >
                 Proceed to Checkout
               </button>
+              <Link to="/products" className="continue-shopping">
+                Continue Shopping
+              </Link>
             </div>
           </>
         )}
       </div>
+      {showPopup && (
+        <div className="popup-overlay">
+          <div className="popup">
+            <h3>Coming Soon!</h3>
+            <p>Our checkout system is under development. Please check back later!</p>
+            <button onClick={() => setShowPopup(false)}>Close</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -142,4 +142,65 @@
 
 .checkout-btn:hover {
   background-color: #45a049;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+}
+
+.popup h3 {
+  margin: 0 0 1rem;
+  color: #333;
+}
+
+.popup p {
+  margin: 0 0 1.5rem;
+  color: #666;
+}
+
+.popup button {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.popup button:hover {
+  background: #45a049;
+}
+
+.continue-shopping {
+  display: inline-block;
+  text-decoration: none;
+  color: #4CAF50;
+  margin-top: 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.continue-shopping:hover {
+  color: #45a049;
+  text-decoration: underline;
 } 
