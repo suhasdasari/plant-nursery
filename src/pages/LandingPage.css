@@ -1,6 +1,6 @@
 .landing-page {
   min-height: 100vh;
-  background-image: url('public/plants/plants-background.png');
+  background-image: url('/plants/plants-background.png');
   background-size: cover;
   background-position: center;
   display: flex;
